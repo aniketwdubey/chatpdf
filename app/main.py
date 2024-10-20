@@ -1,6 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from pydantic import BaseModel, Field
-# import ml_logic
 from . import ml_logic
 import os
 

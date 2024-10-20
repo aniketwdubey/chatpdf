@@ -9,22 +9,6 @@ import os
 
 HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 
-def initialize_embeddings():
-    return HuggingFaceBgeEmbeddings(
-        model_name="BAAI/bge-small-en-v1.5",
-        model_kwargs={'device': 'cpu'},
-        encode_kwargs={'normalize_embeddings': True}
-    )
-
-def initialize_llm():
-    repo_id = "mistralai/Mistral-7B-Instruct-v0.2"
-    return HuggingFaceEndpoint(
-        repo_id=repo_id,
-        max_length=128,
-        temperature=0.7,
-        token=HUGGINGFACEHUB_API_TOKEN
-    )
-
 def process_pdf(file_path):
     try:
         loader = PyPDFLoader(file_path)
@@ -34,12 +18,28 @@ def process_pdf(file_path):
         return final_documents
     except Exception as e:
         raise RuntimeError(f"Failed to process PDF: {str(e)}")
+    
+def initialize_embeddings():
+    return HuggingFaceBgeEmbeddings(
+        model_name="BAAI/bge-small-en-v1.5",
+        model_kwargs={'device': 'cpu'},
+        encode_kwargs={'normalize_embeddings': True}
+    )
 
 def create_vectorstore(documents, embeddings):
     try:
         return FAISS.from_documents(documents, embeddings)
     except Exception as e:
         raise RuntimeError(f"Failed to create vectorstore: {str(e)}")
+
+def initialize_llm():
+    repo_id = "mistralai/Mistral-7B-Instruct-v0.2"
+    return HuggingFaceEndpoint(
+        repo_id=repo_id,
+        max_length=128,
+        temperature=0.7,
+        token=HUGGINGFACEHUB_API_TOKEN
+    )
 
 def setup_retriever(vectorstore):
     try:
