@@ -69,8 +69,8 @@ ChatPDF is a web tool that allows users to upload PDF documents and interact wit
 
 ## Testing
 
-To run the tests, use:
+4. To run the tests, use:
 
-    ```bash
-    pytest tests/test_api.py
-    ```
+   ```bash
+   streamlit run app/streamlit_app.py
+   ```
