@@ -1,6 +1,6 @@
 # ChatPDF
 
-ChatPDF is a web tool that allows users to upload PDF documents and interact with an AI assistant to ask questions about their content. Built with FastAPI for the backend and Streamlit for the frontend, it leverages machine learning libraries for efficient PDF processing and analysis.
+This project is a **Document Retrieval** application that utilizes **Retrieval-Augmented Generation (RAG)** techniques to enable users to interact with uploaded PDF documents. By leveraging a **Large Language Model (LLM)**, users can ask questions about the content of the documents and receive accurate answers based on the information retrieved.
 
 ## Features
 
