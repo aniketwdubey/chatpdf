@@ -37,14 +37,6 @@ ChatPDF is a web tool that allows users to upload PDF documents and interact wit
    pip install -r requirements.txt
    ```
 
-4. Set up your environment variables:
-
-   Create a `.env` file in the root directory and add your Hugging Face API token:
-
-   ```plaintext
-   HUGGINGFACEHUB_API_TOKEN=your_token_here
-   ```
-
 ## Usage
 
 1. Start the FastAPI server:
@@ -72,6 +64,13 @@ ChatPDF is a web tool that allows users to upload PDF documents and interact wit
   - **Request**: JSON body with the question.
   - **Response**: The answer to the question based on the PDF content.
 
+![alt text](<Screenshot 2024-10-20 at 9.13.53 PM.png>)
+![alt text](<Screenshot 2024-10-20 at 9.17.48 PM.png>)
+
 ## Testing
 
 To run the tests, use:
+
+    ```bash
+    pytest tests/test_api.py
+    ```
